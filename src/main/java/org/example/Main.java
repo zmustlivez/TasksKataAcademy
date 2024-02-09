@@ -52,14 +52,17 @@ public class Main {
             }
               String firstDigitStr = input.substring(0, index); //Присваивание первого значения до знака переменной
             String secondDigitStr = input.substring(++index);//Присваивание второго значения после знака переменной
-            if ((((byte) firstDigitStr.charAt(0) > 47) && ((byte) firstDigitStr.charAt(0) < 58)) && (((byte) secondDigitStr.charAt(0) > 47) && ((byte) secondDigitStr.charAt(0) < 58))) {//если числа попадают в интервал от 0 до 9
-                if ((romanNums.containsKey(Integer.parseInt(firstDigitStr)) && romanNums.containsKey(Integer.parseInt(secondDigitStr)))) {//если числа содержатся в romanNums
+            if ((((byte) firstDigitStr.charAt(0) > 47) && ((byte) firstDigitStr.charAt(0) < 58)) && (((byte) secondDigitStr.charAt(0) > 47) &&
+                    ((byte) secondDigitStr.charAt(0) < 58))) {//если числа попадают в интервал от 0 до 9
+                if ((romanNums.containsKey(Integer.parseInt(firstDigitStr)) && romanNums.containsKey(Integer.parseInt(secondDigitStr))))
+                {//если числа содержатся в romanNums
                     res = getArabicalRes(Integer.parseInt(firstDigitStr), Integer.parseInt(secondDigitStr));
                     rightInput = true;
                 } else throw new PrivateException("Введеные арабские числа больше 10,меньше 1 или не целые");
             }
             if (((((byte) firstDigitStr.charAt(0) == 73) | ((byte) firstDigitStr.charAt(0) == 86) | ((byte) firstDigitStr.charAt(0) == 88)) &
-                    (((byte) secondDigitStr.charAt(0) == 73) | ((byte) secondDigitStr.charAt(0) == 86) | ((byte) secondDigitStr.charAt(0) == 88)))) {//Проверка если оба числа римские
+                    (((byte) secondDigitStr.charAt(0) == 73) | ((byte) secondDigitStr.charAt(0) == 86) | ((byte) secondDigitStr.charAt(0) == 88))))
+            {//Проверка если оба числа римские
                 if (romanNums.containsValue(firstDigitStr) && romanNums.containsValue(secondDigitStr)) {
                     res = getRomRes(romanNums, firstDigitStr, secondDigitStr);
                     rightInput = true;
